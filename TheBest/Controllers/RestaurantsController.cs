@@ -35,5 +35,30 @@ namespace TheBest.Controllers
       Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       return View(thisRestaurant);
     }
+    public ActionResult Edit(int id)
+    {
+      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      return View(thisRestaurant);
+    }
+    [HttpPost]
+    public ActionResult Edit(Restaurant restaurant)
+    {
+      _db.Entry(restaurant).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    public ActionResult Delete(int id)
+    {
+      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      return View(thisRestaurant);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      _db.Restaurants.Remove(thisRestaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
