@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using TheBest.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +29,11 @@ namespace TheBest.Controllers
       _db.Restaurants.Add(restaurant);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+    public ActionResult Details(int id)
+    {
+      Restaurant thisRestaurant = _db.Restaurants.FirstorDefault(restaurants => restaurants.RestaurantId == id);
+      return View(thisItem);
     }
   }
 }
