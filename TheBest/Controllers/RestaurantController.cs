@@ -21,7 +21,14 @@ namespace TheBest.Controllers
     }
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(db.Cuisines, "")
+      return View();
+    }
+    [HttpPost]
+    public ActionResult Create (Restaurant restaurant)
+    {
+      _db.Restaurants.Add(restaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }

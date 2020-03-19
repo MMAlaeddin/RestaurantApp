@@ -11,5 +11,5 @@ namespace TheBest.Models
     public int CuisineId { get; set; }
     public string Style { get; set; }
     public virtual ICollection<Restaurant> Restaurants { get; set; }
-    }
+  }
 }
