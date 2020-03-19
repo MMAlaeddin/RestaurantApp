@@ -5,6 +5,7 @@
 @model TheBest.Models.Restaurant
 
 <h4>Add New Restaurant</h4>
+
 @using (Html.BeginForm())
 {
 	@Html.LabelFor(model => model.Name)
@@ -13,6 +14,9 @@
 	@Html.TextBoxFor(model => model.Description)
 	@Html.LabelFor(model => model.Rating)
 	@Html.TextBoxFor(model => model.Rating)
+
+	@Html.LabelFor(model => model.Cuisine)
+	@Html.DropDownList("CuisineId")
 	<input type="submit" value="Add new restaurant"/>
 
 }
