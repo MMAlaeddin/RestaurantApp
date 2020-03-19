@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace TheBest.Controllers
 {
@@ -22,7 +23,6 @@ namespace TheBest.Controllers
     }
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Style");
       return View();
     }
     [HttpPost]
