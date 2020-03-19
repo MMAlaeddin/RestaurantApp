@@ -12,12 +12,12 @@
 <ul>
 @if (@Model.Restaurants.Count == 0)
 {
-  <p>no Restaurants found</p>
+  <p>No restaurants found</p>
 }
 
 @foreach (Restaurant restaurant in @Model.Restaurants)
 {
-  <li>Description: @restaurant.Description</li>
+  <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</li>
 }
 </ul>
 
