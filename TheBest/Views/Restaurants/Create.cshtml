@@ -17,6 +17,9 @@
 
 	@Html.LabelFor(model => model.Cuisine)
 	@Html.DropDownList("CuisineId")
-	<input type="submit" value="Add new restaurant"/>
+	<input type="submit" value="Add new restaurant" class="btn-btn-default" />
 
 }
+<p>@Html.ActionLink("Show all restaurants", "Index")</p>
+
+<!-- Dana added this  -->
